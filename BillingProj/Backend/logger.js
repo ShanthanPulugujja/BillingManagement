@@ -1,4 +1,4 @@
-var url="https://mylogger/log";
+var url="http://localhost:3000/getBills";
 
 function log(message){
     console.log(message);
