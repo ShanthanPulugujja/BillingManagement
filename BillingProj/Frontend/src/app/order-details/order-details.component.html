@@ -1,10 +1,21 @@
-<p>order-details works!</p>
-<!-- <mat-table #table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="{{column.Id}}" *ngFor="let column of columnNames">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.value}}</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element[column.id]}}</mat-cell>
-    </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table> -->
+
+<mat-table #table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="Id">
+    <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.Id}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Bill_no">
+    <mat-header-cell *matHeaderCellDef> BillNo </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.Bill_no}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Date">
+    <mat-header-cell *matHeaderCellDef>Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.Date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Amount">
+    <mat-header-cell *matHeaderCellDef>Amount </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.Amount}} </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>

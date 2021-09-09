@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 import { AppComponent } from './app.component';
-
+import { MatTableModule } from '@angular/material/table'
 import { HttpClientModule } from '@angular/common/http';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 @NgModule({
@@ -14,7 +14,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
   ],
   imports: [
     BrowserModule,
-   HttpClientModule,
+   HttpClientModule,MatTableModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

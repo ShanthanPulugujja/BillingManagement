@@ -10,8 +10,10 @@ interface Metadata {
   Id: number,
   Bill_no: number,
   Date: Date,
-  
+  Amount:number,
 }
+const ELEMENT_DATA: Metadata[] = [
+];
 @Component({
   selector: 'app-order-details',
   templateUrl: './order-details.component.html',
@@ -20,7 +22,9 @@ interface Metadata {
 
 export class OrderDetailsComponent implements OnInit {
   //displayedColumns = [];
-  displayedColumns= ['Id','Bill_no','Date'];
+  displayedColumns: string[]= ["Id","Bill_no","Date","Amount"];
+  dataSource : any[] = [];
+
   //columnsData: Metadata[];
   // @ViewChild(MatPaginator, { static: false })
   // @ViewChild(MatSort, { static: false })
@@ -28,22 +32,17 @@ export class OrderDetailsComponent implements OnInit {
   constructor(private http:HttpClient){
 
   }
-  dataSource:any;
+  
   
   ngOnInit(): void {
    
     this.getOrderDetails();
     
   }
- 
+   columnsData = [];
   getOrderDetails(){
     this.http.get<any>('http://localhost:3000/getBills').subscribe(data => {
-     console.log("test",data);
-     if(data.body != null){
-     // this.columnsData = data.recordset;
-      this.dataSource = new MatTableDataSource(data.recordset);
-
-     }
+     this.dataSource = data.recordset;
   })
   }
 }
